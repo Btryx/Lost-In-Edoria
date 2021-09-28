@@ -5,21 +5,22 @@ using UnityEngine.UI;
 
 public class Fruit : MonoBehaviour
 {
-    [SerializeField]
     public int fruitCount;
+    public Text counter;
 
     private void Start()
     {
         fruitCount = 0;
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Fruit"))
         {
-            gameObject.SetActive(false);
+            collision.gameObject.SetActive(false);
             ++fruitCount;
+            counter.text = "" + fruitCount;
         }
     }
 
-  
 }

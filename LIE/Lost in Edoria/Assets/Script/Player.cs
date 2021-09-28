@@ -16,6 +16,8 @@ public class Player : MonoBehaviour {
 
     private Animator anim;
 
+    private BoxCollider2D boxc; 
+
     private string WALK_ANIM = "Walk";
     private string JUMP_ANIM = "Jump";
 
@@ -28,14 +30,12 @@ public class Player : MonoBehaviour {
 
     bool haveKey;
 
-
-
     private void Awake()
     {
-        
         myBody = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        boxc = GetComponent<BoxCollider2D>();
     }
 
     // Start is called before the first frame update
@@ -59,7 +59,6 @@ public class Player : MonoBehaviour {
             Destroy(this.gameObject);
         }
     }
-
     void PlayerMovement()
     {
         movementX = Input.GetAxis("Horizontal");
@@ -101,7 +100,7 @@ public class Player : MonoBehaviour {
         {
             TakeDamage(1);
 
-            if (GameObject.FindGameObjectWithTag("Enemy").transform.position.x > gameObject.transform.position.x )
+            if (collision.gameObject.transform.position.x > gameObject.transform.position.x )
             {
                 myBody.AddForce(new Vector2(-5f, 10f), ForceMode2D.Impulse);
             }
@@ -122,6 +121,12 @@ public class Player : MonoBehaviour {
         if (collision.gameObject.CompareTag("FinishLine") && haveKey)
         {
             SceneManager.LoadScene(2);
+        }
+
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(collision.gameObject);
+            myBody.AddForce(new Vector2(0, 15f), ForceMode2D.Impulse);
         }
     }
 

@@ -40,12 +40,13 @@ public class Enemy : MonoBehaviour{
             Direction = !Direction;
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Block"))
-        {
-            transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
-            Direction = !Direction;
-        }
+     private void OnCollisionEnter2D(Collision2D collision)
+     {
+        /* if (collision.gameObject.CompareTag("Block"))
+         {
+             transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
+             Direction = !Direction;
+         }*/
+
     }
 }

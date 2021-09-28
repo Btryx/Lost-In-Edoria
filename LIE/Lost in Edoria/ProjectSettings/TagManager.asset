@@ -9,6 +9,8 @@ TagManager:
   - Block
   - FinishLine
   - Key
+  - head
+  - Fruit
   layers:
   - Default
   - TransparentFX

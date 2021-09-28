@@ -17,7 +17,6 @@ public class CameraFollow : MonoBehaviour {
     void Update()
     {
         if (player) {
-           
 
             CamPos = transform.position;
             CamPos.x = player.position.x;
