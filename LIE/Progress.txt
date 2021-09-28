@@ -28,3 +28,13 @@
 -you need to pick up key object before you can get to the next level
 -collectible strawberries
 -moveable box that helps you onto platform
+
+2021.09.21.
+-Counter on screen tells you how much strawberries you have
+-Edited main menu
+
+2021.09.27.
+-You can now kill enemies buy jumping on their head
+-Not the ghost tho. That's a feature. You can't jump on ghosts, obviously
+-Fixed a bug with the strawberry counter (it actually works now)
+-Home and Restart button
