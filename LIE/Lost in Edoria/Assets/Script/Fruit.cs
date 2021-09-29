@@ -20,6 +20,7 @@ public class Fruit : MonoBehaviour
             collision.gameObject.SetActive(false);
             ++fruitCount;
             counter.text = "" + fruitCount;
+            Audio.instance.playCollect();
         }
     }
 

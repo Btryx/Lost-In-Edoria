@@ -11,6 +11,7 @@ TagManager:
   - Key
   - head
   - Fruit
+  - rugo
   layers:
   - Default
   - TransparentFX

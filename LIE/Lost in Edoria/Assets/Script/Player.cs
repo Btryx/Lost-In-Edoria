@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 
+    public static Player Instance;
+
     private float speed = 10f;
     private float jump = 14f;
 
@@ -21,7 +23,7 @@ public class Player : MonoBehaviour {
     private string WALK_ANIM = "Walk";
     private string JUMP_ANIM = "Jump";
 
-    bool touchGround;
+    public bool touchGround;
 
     public int life;
     public int maxLife = 3;
@@ -36,6 +38,11 @@ public class Player : MonoBehaviour {
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         boxc = GetComponent<BoxCollider2D>();
+
+        if (Instance == null)
+        {
+            Instance = this;
+        }
     }
 
     // Start is called before the first frame update
@@ -51,7 +58,6 @@ public class Player : MonoBehaviour {
         Animate();
         PlayerJump();
     }
-
     private void FixedUpdate()
     {
         if(transform.position.y < -16)
@@ -62,7 +68,6 @@ public class Player : MonoBehaviour {
     void PlayerMovement()
     {
         movementX = Input.GetAxis("Horizontal");
-
         transform.position += new Vector3(movementX, 0f, 0f) * Time.deltaTime * speed;
     }
 
@@ -75,17 +80,16 @@ public class Player : MonoBehaviour {
         if (movementX < 0) sr.flipX = true;
         else if (movementX > 0) sr.flipX = false;
     }
-
     void PlayerJump()
     {
         if (Input.GetButtonDown("Jump") && touchGround)
         {
             touchGround = false;
-            myBody.AddForce(new Vector2(0f, jump), ForceMode2D.Impulse);
             anim.SetBool(JUMP_ANIM, true);
+            myBody.AddForce(new Vector2(0f, jump), ForceMode2D.Impulse);
+            Audio.instance.playJump();
         }
     }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.CompareTag("Ground"))
@@ -99,53 +103,65 @@ public class Player : MonoBehaviour {
         if (collision.gameObject.CompareTag("Enemy"))
         {
             TakeDamage(1);
+            //death.Play();
 
             if (collision.gameObject.transform.position.x > gameObject.transform.position.x )
             {
-                myBody.AddForce(new Vector2(-5f, 10f), ForceMode2D.Impulse);
+                myBody.AddForce(new Vector2(-5f, 5f), ForceMode2D.Impulse);
             }
             else
             {
-                myBody.AddForce(new Vector2(10f, 5f), ForceMode2D.Impulse);
+                myBody.AddForce(new Vector2(5f, 5f), ForceMode2D.Impulse);
             }
         }
     }
-
+    IEnumerator ExecuteAfterTime(float time)
+    {
+        yield return new WaitForSeconds(time);
+        SceneManager.LoadScene(2);
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Key"))
         {
             haveKey = true;
+            Audio.instance.playCollect();
         }
 
         if (collision.gameObject.CompareTag("FinishLine") && haveKey)
         {
-            SceneManager.LoadScene(2);
+            Audio.instance.playfinish();
+            StartCoroutine(ExecuteAfterTime(2));
         }
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Destroy(collision.gameObject);
             myBody.AddForce(new Vector2(0, 15f), ForceMode2D.Impulse);
+            Audio.instance.playkill();
         }
     }
-
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         life -= damage;
 
-        if (life < 1) hearts[0].gameObject.SetActive(false);
+        if (life <= 0)
+        {
+            for (int i = 0; i < hearts.Length; i++)
+            {
+                hearts[i].SetActive(false);
+            }
+        }
+        else if (life < 1) hearts[0].gameObject.SetActive(false);
         else if (life < 2) hearts[1].gameObject.SetActive(false);
         else if (life < 3) hearts[2].gameObject.SetActive(false);
 
-        if (life == 0)
+        if (life <= 0)
         {
+            Audio.instance.playDeath();
             Destroy(gameObject);
         }
     }
-
-
-
 
 
 

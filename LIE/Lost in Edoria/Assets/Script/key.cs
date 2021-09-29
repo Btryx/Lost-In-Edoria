@@ -13,9 +13,4 @@ public class Key : MonoBehaviour
         }
     }
 
-
-    void Update()
-    {
-        
-    }
 }
