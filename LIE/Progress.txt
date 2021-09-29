@@ -39,7 +39,7 @@
 -Fixed a bug with the strawberry counter (it actually works now)
 -Home and Restart button
 
-2021.09.29.
+2021.09.30.
 -Background music asset: https://assetstore.unity.com/packages/audio/music/free-music-tracks-for-games-156413
 -Background music: Potato by Brave Warrior (YOutube link: https://www.youtube.com/watch?v=-rAHaAmSGpM&t=3s)
 -Other sounds: https://assetstore.unity.com/packages/audio/sound-fx/free-casual-game-sfx-pack-54116

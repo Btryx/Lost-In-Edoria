@@ -53,4 +53,19 @@ Platformer game, where you control a little girl. Collect strawberries, avoid tr
 * Not the ghost tho. That's a feature. You can't jump on ghosts, obviously
 * Fixed a bug with the strawberry counter (it actually works now)
 * Home and Restart button
+  
+2021.09.30.
+----------
+
+* [Background music asset](https://assetstore.unity.com/packages/audio/music/free-music-tracks-for-games-156413)
+* Background music: Potato by Brave Warrior [Youtube link](https://www.youtube.com/watch?v=-rAHaAmSGpM&t=3s)
+* [Other Sounds](https://assetstore.unity.com/packages/audio/sound-fx/free-casual-game-sfx-pack-54116)
+* Jump sound when jumping, collect sounds when picking smt up, death sound when player dies, and victory sound if player touches the finishline
+* Added background music
+* Player gets thrown back to start of level 1 when they die even if they are on an another level, but they get maxlife every start of every level
+* Started making level 2 but it looks ugly so far, will work on it later
+* Updated Main Menu with monster walking around
+* Made some traps if you touch them you die so don't do that
+* Made some trampolins now you can jump onto higher platforms that you wouldn't be able to reach otherwise
+
 
