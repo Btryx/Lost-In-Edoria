@@ -12,6 +12,10 @@ TagManager:
   - head
   - Fruit
   - rugo
+  - gameman
+  - audio
+  - menu
+  - canvas
   layers:
   - Default
   - TransparentFX

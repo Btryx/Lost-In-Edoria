@@ -97,6 +97,8 @@ GameObject:
   - component: {fileID: 4174653611749203164}
   - component: {fileID: 4174653611749203165}
   - component: {fileID: 4174653611749203110}
+  - component: {fileID: 1079053662}
+  - component: {fileID: 1079053663}
   m_Layer: 0
   m_Name: hanna
   m_TagString: Player
@@ -205,6 +207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myBody: {fileID: 0}
   sr: {fileID: 0}
+  touchGround: 0
   life: 0
   maxLife: 3
   hearts:
@@ -243,8 +246,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.013963699, y: 0.06283665}
-  m_Size: {x: 2.0904694, y: 3.634327}
+  m_Offset: {x: 0.013963699, y: 0.046624303}
+  m_Size: {x: 2.0904694, y: 3.6667516}
   m_Direction: 0
 --- !u!114 &4174653611749203110
 MonoBehaviour:
@@ -260,3 +263,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fruitCount: 0
   counter: {fileID: 0}
+--- !u!114 &1079053662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4174653611749203161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 418ed060b7df95740abe1753cf280b0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1079053663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4174653611749203161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c60ffd75862a51d448f10ab65c522476, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UpForce: 0
