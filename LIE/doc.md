@@ -68,4 +68,13 @@ Platformer game, where you control a little girl. Collect strawberries, avoid tr
 * Made some traps if you touch them you die so don't do that
 * Made some trampolins now you can jump onto higher platforms that you wouldn't be able to reach otherwise
 
+2021.10.01.
+----------
+* Tried to fix trampoline bug for 2 hours, realised the mistake was in an another script. Its working now.
 
+2021.10.04.
+----------
+* Made level 3 with some new features
+* Made eye of sight restricted in level 3
+* if you die, you get thrown back to the start of current level, but you take your lifes to the next level, they dont regenerate
+* fixed moving platform bug
