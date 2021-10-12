@@ -78,3 +78,15 @@ Platformer game, where you control a little girl. Collect strawberries, avoid tr
 * Made eye of sight restricted in level 3
 * if you die, you get thrown back to the start of current level, but you take your lifes to the next level, they dont regenerate
 * fixed moving platform bug
+
+2021.10.07
+---------
+* Drew a door and a triggerbutton
+* If player steps on triggerbutton, the door ahead slowly opens
+* WHen player jumps off of button the door slowly closes so player has to hurry to reach it
+
+2021.10.11.
+------------
+* Made a dialoguge system. Dialogues trigger when player reaches certain points/areas in the game.
+* You can't move during dialogue
+* You can skip to next dialogue by pressing the continue button on the dialogue box

@@ -16,6 +16,7 @@ TagManager:
   - audio
   - menu
   - canvas
+  - ball
   layers:
   - Default
   - TransparentFX

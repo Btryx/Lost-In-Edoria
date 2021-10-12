@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour {
 
     public static Player Instance;
+    public DiaClass d;
 
     private float speed = 10f;
     private float jump = 14f;
@@ -60,20 +61,29 @@ public class Player : MonoBehaviour {
     }
     private void FixedUpdate()
     {
-        if(transform.position.y < -16)
+        if(transform.position.y < -36)
         {
             Destroy(this.gameObject);
         }
     }
     void PlayerMovement()
     {
+        if (Dialogue.instance.dialogueIsPlaying)
+        {
+            return;
+        }
         movementX = Input.GetAxis("Horizontal");
         transform.position += new Vector3(movementX, 0f, 0f) * Time.deltaTime * speed;
     }
 
     void Animate()
     {
-        if(movementX > 0) { anim.SetBool(WALK_ANIM, true); }
+        if (Dialogue.instance.dialogueIsPlaying)
+        {
+            anim.SetBool(WALK_ANIM, false);
+            return;
+        }
+        if (movementX > 0) { anim.SetBool(WALK_ANIM, true); }
         else if (movementX == 0) { anim.SetBool(WALK_ANIM, false); }
         else{ anim.SetBool(WALK_ANIM, true); }
 
@@ -84,6 +94,10 @@ public class Player : MonoBehaviour {
     {
         if (Input.GetButtonDown("Jump") && touchGround)
         {
+            if (Dialogue.instance.dialogueIsPlaying)
+            {
+                return;
+            }
             touchGround = false;
             anim.SetBool(JUMP_ANIM, true);
             myBody.AddForce(new Vector2(0f, jump), ForceMode2D.Impulse);
@@ -122,6 +136,13 @@ public class Player : MonoBehaviour {
         yield return new WaitForSeconds(time);
         SceneManager.LoadScene(GameManager.Instance.level);
     }
+
+    IEnumerator WaitBeforeDeath(float time)
+    {
+        yield return new WaitForSeconds(time);
+        Destroy(gameObject);
+
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Key"))
@@ -134,14 +155,13 @@ public class Player : MonoBehaviour {
         {
             Audio.instance.playfinish();
             GameManager.Instance.level++;
-            StartCoroutine(ExecuteAfterTime(2));
-
+            StartCoroutine(ExecuteAfterTime(1.5f));
         }
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Destroy(collision.gameObject);
-            myBody.AddForce(new Vector2(0, 15f), ForceMode2D.Impulse);
+            myBody.AddForce(new Vector2(0, 10f), ForceMode2D.Impulse);
             Audio.instance.playkill();
         }
     }
@@ -157,13 +177,13 @@ public class Player : MonoBehaviour {
             }
             Audio.instance.playDeath();
             GameManager.Instance.Death();
-            Destroy(gameObject);
+            //todo
+            anim.SetBool(JUMP_ANIM, true);
+            myBody.AddForce(new Vector2(0, 4.5f), ForceMode2D.Impulse); 
+            StartCoroutine(WaitBeforeDeath(0.5f));
         }
         else if (life < 1) hearts[0].gameObject.SetActive(false);
         else if (life < 2) hearts[1].gameObject.SetActive(false);
         else if (life < 3) hearts[2].gameObject.SetActive(false);
     }
-
-
-
 }

@@ -34,6 +34,9 @@ public class MainMenu : MonoBehaviour
     }
     public void Home()
     {
+        GameManager.Instance.level = 1;
         SceneManager.LoadScene(0);
+
     }
+
 }
