@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
     public static MainMenu instance;
+
+
 
     private void Awake()
     {
@@ -14,18 +17,16 @@ public class MainMenu : MonoBehaviour
             instance = this;
         }
 
-        GameObject[] objs = GameObject.FindGameObjectsWithTag("menu");
-
-        if (objs.Length > 1)
-        {
-            Destroy(this.gameObject);
-        }
-
-        DontDestroyOnLoad(this.gameObject);
     }
+
     public void PlayGame()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void quitGame()
@@ -34,9 +35,17 @@ public class MainMenu : MonoBehaviour
     }
     public void Home()
     {
-        GameManager.Instance.level = 1;
         SceneManager.LoadScene(0);
+    }
 
+    public void QuestionSetActive()
+    {
+        Question.Instance.gameObject.SetActive(true);
+    }
+
+    public void Cancel()
+    {
+        Question.Instance.gameObject.SetActive(false);
     }
 
 }

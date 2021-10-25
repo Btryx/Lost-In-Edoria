@@ -7,10 +7,11 @@ public class CameraFollow : MonoBehaviour {
     private Transform player;
     private Vector3 CamPos;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         player = GameObject.FindWithTag("Player").transform;
+;
     }
 
     // Update is called once per frame

@@ -1,12 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Data : MonoBehaviour
 {
     public static Data Instance;
+    public int currentLevel;
     public int highest;
-    public int scoreholder;
+    public float scoreholder;
+    public int score;
+    public float timer;
+    public float timeHolder;
+    public float timerscore;
 
     private void Awake()
     {
@@ -16,6 +21,7 @@ public class Data : MonoBehaviour
         }
 
         GameObject[] objs = GameObject.FindGameObjectsWithTag("canvas");
+        currentLevel = Player.Instance.TouchedFinishLine + 1;
 
         if (objs.Length > 1)
         {
@@ -24,14 +30,4 @@ public class Data : MonoBehaviour
 
         DontDestroyOnLoad(this.gameObject);
     }
-
-    private void Update()
-    {
-        //scoreholder = Fruit.instance.fruitCount;
-        if (scoreholder > highest) highest = scoreholder;
-    }
-
-   
-
-
 }

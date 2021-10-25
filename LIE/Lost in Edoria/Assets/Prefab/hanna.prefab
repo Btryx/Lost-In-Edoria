@@ -10,9 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4174653609862256704}
   - component: {fileID: 4174653609862256711}
+  - component: {fileID: 624027610}
+  - component: {fileID: 624027611}
   m_Layer: 0
-  m_Name: fireball
-  m_TagString: Untagged
+  m_Name: colliderball
+  m_TagString: ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -82,6 +84,43 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &624027610
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4174653609862256705}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!70 &624027611
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4174653609862256705}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.009261411, y: -0.03504958}
+  m_Size: {x: 0.11852261, y: 0.13009907}
+  m_Direction: 0
 --- !u!1 &4174653611749203161
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,7 +179,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -205,6 +244,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 975393d5aadaa464c8f2428b952277f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  d:
+    DialogueText: 
+    sentences: []
   myBody: {fileID: 0}
   sr: {fileID: 0}
   touchGround: 0
@@ -214,6 +256,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  haveKey: 0
 --- !u!95 &4174653611749203164
 Animator:
   serializedVersion: 3
@@ -246,8 +289,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.013963699, y: 0.046624303}
-  m_Size: {x: 2.0904694, y: 3.6667516}
+  m_Offset: {x: 0.013963699, y: 0.056129932}
+  m_Size: {x: 2.0904694, y: 3.6477404}
   m_Direction: 0
 --- !u!114 &4174653611749203110
 MonoBehaviour:

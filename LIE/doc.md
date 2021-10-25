@@ -90,3 +90,18 @@ Platformer game, where you control a little girl. Collect strawberries, avoid tr
 * Made a dialoguge system. Dialogues trigger when player reaches certain points/areas in the game.
 * You can't move during dialogue
 * You can skip to next dialogue by pressing the continue button on the dialogue box
+  
+2021.10.20.
+-----------
+* Finished dialogue
+* Added an npc that talks to you sometimes, but he's not very helpful honestly
+* House, tree, background and bush assets from : [here](https://assetstore.unity.com/packages/2d/characters/sunny-land-103349)
+* Fixed the restart and the home button
+
+2021.10.25.
+----------
+* Pressing home button will pop up a question, asking if you are sure you want to quit, because your progress will be lost(it really will)
+* Added a timer and a score system that keeps tabs on your score/time until the end of the game, and displays it
+* the faster you finish the game, and the more fruits you collect, the more your score will be
+* When you finish the game, a new scene shows you the sum of all your scores, and the time it took you to finish the game
+* Added credits at end of game

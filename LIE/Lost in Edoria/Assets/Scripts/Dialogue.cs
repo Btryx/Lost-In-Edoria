@@ -10,6 +10,7 @@ public class Dialogue : MonoBehaviour
     private Queue<string> sentences;
     public bool dialogueIsPlaying = false;
     public GameObject dialogueBox;
+    public bool Toby;
 
 
     private void Awake()
@@ -26,6 +27,7 @@ public class Dialogue : MonoBehaviour
 
     public void StartDialogue(DiaClass d)
     {
+        bool Toby = true;
         diaText.text = d.DialogueText;
         dialogueIsPlaying = true;
         dialogueBox.SetActive(true);
@@ -44,7 +46,7 @@ public class Dialogue : MonoBehaviour
         foreach (char letter in sentence.ToCharArray())
         {
             diaText.text += letter;
-            yield return new WaitForSeconds(0.04f);
+            yield return new WaitForSeconds(0.03f);
         }
     }
     public void DisplayNextSentence()
@@ -64,6 +66,7 @@ public class Dialogue : MonoBehaviour
     {
         dialogueIsPlaying = false;
         dialogueBox.SetActive(false);
+        Toby = false;
     }
 
 

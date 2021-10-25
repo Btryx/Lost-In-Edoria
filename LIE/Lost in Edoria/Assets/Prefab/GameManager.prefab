@@ -44,7 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b749897974644994b8a6f85a832a2de0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
 --- !u!114 &5029974125095177914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,3 +58,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highest: 0
   scoreholder: 0
+  score: 0
+  timer: 0
+  timeHolder: 0
+  timerscore: 0
+  YourTime: {fileID: 0}
+  YourScore: {fileID: 0}
+  Time: {fileID: 0}
+  ScoreDis: {fileID: 0}

@@ -10,16 +10,13 @@ public class Player : MonoBehaviour {
 
     private float speed = 10f;
     private float jump = 14f;
-
     private float movementX;
-
     public Rigidbody2D myBody;
-
     public SpriteRenderer sr;
-
     private Animator anim;
-
-    private BoxCollider2D boxc; 
+    private BoxCollider2D boxc;
+    public int TouchedFinishLine;
+    
 
     private string WALK_ANIM = "Walk";
     private string JUMP_ANIM = "Jump";
@@ -31,7 +28,7 @@ public class Player : MonoBehaviour {
 
     public GameObject[] hearts;
 
-    bool haveKey;
+    public bool haveKey;
 
     private void Awake()
     {
@@ -50,6 +47,7 @@ public class Player : MonoBehaviour {
     void Start()
     {
         life = maxLife;
+        Data.Instance.timer = 0;
     }
 
     // Update is called once per frame
@@ -58,6 +56,8 @@ public class Player : MonoBehaviour {
         PlayerMovement();
         Animate();
         PlayerJump();
+
+        Data.Instance.timer += Time.deltaTime;
     }
     private void FixedUpdate()
     {
@@ -123,18 +123,18 @@ public class Player : MonoBehaviour {
 
             if (collision.gameObject.transform.position.x > gameObject.transform.position.x )
             {
-                myBody.AddForce(new Vector2(-5f, 5f), ForceMode2D.Impulse);
+                myBody.velocity = new Vector3(-10f, 10f, 0);
             }
             else
             {
-                myBody.AddForce(new Vector2(5f, 5f), ForceMode2D.Impulse);
+                myBody.velocity = new Vector3(10f, 10f, 0);
             }
         }
     }
     IEnumerator ExecuteAfterTime(float time)
     {
         yield return new WaitForSeconds(time);
-        SceneManager.LoadScene(GameManager.Instance.level);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     IEnumerator WaitBeforeDeath(float time)
@@ -154,14 +154,25 @@ public class Player : MonoBehaviour {
         if (collision.gameObject.CompareTag("FinishLine") && haveKey)
         {
             Audio.instance.playfinish();
-            GameManager.Instance.level++;
-            StartCoroutine(ExecuteAfterTime(1.5f));
+            TouchedFinishLine++;
+            Data.Instance.timeHolder += Data.Instance.timer;
+            Data.Instance.timerscore = 150 - (Data.Instance.timer);
+            Data.Instance.scoreholder += Data.Instance.score;
+            Data.Instance.score = 0;
+            Data.Instance.scoreholder += Data.Instance.timerscore;
+            Data.Instance.timerscore = 0;
+            StartCoroutine(ExecuteAfterTime(1f));
+        }
+
+        if(collision.gameObject.CompareTag("House"))
+        {
+            TouchedFinishLine = -1;
         }
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Destroy(collision.gameObject);
-            myBody.AddForce(new Vector2(0, 10f), ForceMode2D.Impulse);
+            myBody.velocity = new Vector3(0, 10, 0);
             Audio.instance.playkill();
         }
     }
@@ -177,7 +188,6 @@ public class Player : MonoBehaviour {
             }
             Audio.instance.playDeath();
             GameManager.Instance.Death();
-            //todo
             anim.SetBool(JUMP_ANIM, true);
             myBody.AddForce(new Vector2(0, 4.5f), ForceMode2D.Impulse); 
             StartCoroutine(WaitBeforeDeath(0.5f));
@@ -186,4 +196,5 @@ public class Player : MonoBehaviour {
         else if (life < 2) hearts[1].gameObject.SetActive(false);
         else if (life < 3) hearts[2].gameObject.SetActive(false);
     }
+
 }

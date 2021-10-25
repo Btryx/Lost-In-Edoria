@@ -17,6 +17,12 @@ TagManager:
   - menu
   - canvas
   - ball
+  - Gate
+  - foot
+  - Toby1
+  - Toby2
+  - event
+  - House
   layers:
   - Default
   - TransparentFX
@@ -62,4 +68,7 @@ TagManager:
     locked: 0
   - name: canvas
     uniqueID: 888717849
+    locked: 0
+  - name: haha
+    uniqueID: 3752652555
     locked: 0

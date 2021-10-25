@@ -31,9 +31,13 @@ public class Door : MonoBehaviour
             StartCoroutine(Move(this.gameObject, endpos, 0.008f));
         }
         //closing
-        if (buttoncollider.instance.DoorShouldMove == false)
+        if (!buttoncollider.instance.DoorShouldMove && this.gameObject.name != "door_level5")
         {
             StartCoroutine(Move(this.gameObject, startpos, 0.003f));
+        }
+        else if (!buttoncollider.instance.DoorShouldMove && this.gameObject.name == "door_level5")
+        {
+            StartCoroutine(Move(this.gameObject, startpos, 0.001f));
         }
     }
 
