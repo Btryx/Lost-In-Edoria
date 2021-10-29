@@ -8,8 +8,6 @@ public class MainMenu : MonoBehaviour
 {
     public static MainMenu instance;
 
-
-
     private void Awake()
     {
         if (instance == null)
@@ -18,7 +16,6 @@ public class MainMenu : MonoBehaviour
         }
 
     }
-
     public void PlayGame()
     {
         SceneManager.LoadScene(1);

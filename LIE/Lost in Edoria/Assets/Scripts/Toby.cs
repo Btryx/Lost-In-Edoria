@@ -20,6 +20,5 @@ public class Toby : MonoBehaviour
             gameObject.SetActive(false);
         }
 
-        Debug.Log(Dialogue.instance.Toby);
     }
 }

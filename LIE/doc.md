@@ -105,3 +105,11 @@ Platformer game, where you control a little girl. Collect strawberries, avoid tr
 * the faster you finish the game, and the more fruits you collect, the more your score will be
 * When you finish the game, a new scene shows you the sum of all your scores, and the time it took you to finish the game
 * Added credits at end of game
+
+2021.10.28.
+-----------
+* Options menu GUI
+  
+2021.10.29.
+----------
+* Options menu settings: you can set the resolution, the volume, and there's a fullscreen option as well

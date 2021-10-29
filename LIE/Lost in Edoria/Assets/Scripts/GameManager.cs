@@ -18,10 +18,6 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
 
-        GameObject[] objs = GameObject.FindGameObjectsWithTag("gameman");
-
-        if (objs.Length > 1)
-
         DontDestroyOnLoad(this.gameObject);
     }
 

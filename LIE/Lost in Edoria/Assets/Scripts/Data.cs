@@ -12,6 +12,9 @@ public class Data : MonoBehaviour
     public float timer;
     public float timeHolder;
     public float timerscore;
+    public float volume;
+    public bool fs;
+    public int resolution;
 
     private void Awake()
     {
@@ -20,13 +23,7 @@ public class Data : MonoBehaviour
             Instance = this;
         }
 
-        GameObject[] objs = GameObject.FindGameObjectsWithTag("canvas");
         currentLevel = Player.Instance.TouchedFinishLine + 1;
-
-        if (objs.Length > 1)
-        {
-            Destroy(this.gameObject);
-        }
 
         DontDestroyOnLoad(this.gameObject);
     }

@@ -2,16 +2,51 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class Optons : MonoBehaviour
 {
-    List<string> opt = new List<string> { "LOW", "HIGH" };
-    Dropdown drop;
+    public AudioMixer audiomixer;
+    public Slider volume;
+    public Toggle fullscreen;
+    Resolution[] resArray;
+    public TMPro.TMP_Dropdown resDropdown;
 
     private void Start()
     {
-        drop = GetComponent<Dropdown>();
-        drop.ClearOptions();
-        drop.AddOptions(opt);
+        if(SceneManager.GetActiveScene().buildIndex == 0) {
+            resArray = Screen.resolutions;
+            resDropdown.ClearOptions();
+            List<string> options = new List<string>();
+            for (int i = 0; i < resArray.Length; i++)
+            {
+                string option = resArray[i].width + "x" + resArray[i].height;
+                options.Add(option);
+            }
+            resDropdown.AddOptions(options);
+
+            resDropdown.value = Data.Instance.resolution;
+            volume.value = Data.Instance.volume;
+            fullscreen.isOn = Data.Instance.fs;
+        }
+
+    }
+    public void Volume(float vol)
+    {
+        audiomixer.SetFloat("ExposedVol", vol);
+        Data.Instance.volume = volume.value;
+    }
+
+    public void FullScreen(bool IsFull)
+    {
+        Screen.fullScreen = IsFull;
+        Data.Instance.fs = fullscreen.isOn;
+    }
+    public void Resolution(int resIndex)
+    {
+        Resolution r = resArray[resIndex];
+        Screen.SetResolution(r.width, r.height, Screen.fullScreen);
+        Data.Instance.resolution = resDropdown.value;
     }
 }
