@@ -9,14 +9,12 @@ public class Player : MonoBehaviour {
     public DiaClass d;
 
     private float speed = 10f;
-    private float jump = 14f;
+    private float jump = 13f;
     private float movementX;
     public Rigidbody2D myBody;
     public SpriteRenderer sr;
     private Animator anim;
     private BoxCollider2D boxc;
-    public int TouchedFinishLine;
-    
 
     private string WALK_ANIM = "Walk";
     private string JUMP_ANIM = "Jump";
@@ -100,7 +98,7 @@ public class Player : MonoBehaviour {
             }
             touchGround = false;
             anim.SetBool(JUMP_ANIM, true);
-            myBody.AddForce(new Vector2(0f, jump), ForceMode2D.Impulse);
+            myBody.velocity = new Vector3(0f, jump, 0);
             Audio.instance.playJump();
         }
     }
@@ -154,7 +152,7 @@ public class Player : MonoBehaviour {
         if (collision.gameObject.CompareTag("FinishLine") && haveKey)
         {
             Audio.instance.playfinish();
-            TouchedFinishLine++;
+            Data.Instance.TouchedFinishLine++;
             Data.Instance.timeHolder += Data.Instance.timer;
             Data.Instance.timerscore = 150 - (Data.Instance.timer);
             Data.Instance.scoreholder += Data.Instance.score;
@@ -166,7 +164,7 @@ public class Player : MonoBehaviour {
 
         if(collision.gameObject.CompareTag("House"))
         {
-            TouchedFinishLine = -1;
+            Data.Instance.TouchedFinishLine = -1;
         }
 
         if (collision.gameObject.CompareTag("Enemy"))

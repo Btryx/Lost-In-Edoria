@@ -113,3 +113,14 @@ Platformer game, where you control a little girl. Collect strawberries, avoid tr
 2021.10.29.
 ----------
 * Options menu settings: you can set the resolution, the volume, and there's a fullscreen option as well
+
+2021.10.30.
+----------
+* Debugging
+
+2021.11.10.
+----------
+* Made a highscore
+* Player can reset highscore if they want to
+* Modified the trampulines
+* Fixed some bugs

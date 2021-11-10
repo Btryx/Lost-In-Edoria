@@ -8,12 +8,13 @@ public class trambulin : MonoBehaviour
 
     private void Start()
     {
-        UpForce = 10f;
+        UpForce = 5f;
     }
 
     private void Update()
     {
-        if (UpForce > 40 || Player.Instance.touchGround) UpForce = 10f;
+        if (Player.Instance.touchGround) UpForce = 5f;
+        if (UpForce > 30f) UpForce = 30f;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

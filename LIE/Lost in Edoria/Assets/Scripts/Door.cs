@@ -33,7 +33,7 @@ public class Door : MonoBehaviour
         //closing
         if (!buttoncollider.instance.DoorShouldMove && this.gameObject.name != "door_level5")
         {
-            StartCoroutine(Move(this.gameObject, startpos, 0.003f));
+            StartCoroutine(Move(this.gameObject, startpos, 0.005f));
         }
         else if (!buttoncollider.instance.DoorShouldMove && this.gameObject.name == "door_level5")
         {

@@ -1,14 +1,16 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.UI;
 
 public class Data : MonoBehaviour
 {
     public static Data Instance;
-    public int currentLevel;
-    public int highest;
+    public int currentLevel = 0;
+    public int TouchedFinishLine;
+
     public float scoreholder;
-    public int score;
+    public float score;
     public float timer;
     public float timeHolder;
     public float timerscore;
@@ -23,8 +25,9 @@ public class Data : MonoBehaviour
             Instance = this;
         }
 
-        currentLevel = Player.Instance.TouchedFinishLine + 1;
+        currentLevel = TouchedFinishLine + 1;
 
         DontDestroyOnLoad(this.gameObject);
     }
+    
 }

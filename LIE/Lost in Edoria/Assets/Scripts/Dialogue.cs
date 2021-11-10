@@ -27,7 +27,7 @@ public class Dialogue : MonoBehaviour
 
     public void StartDialogue(DiaClass d)
     {
-        bool Toby = true;
+        Toby = true;
         diaText.text = d.DialogueText;
         dialogueIsPlaying = true;
         dialogueBox.SetActive(true);
