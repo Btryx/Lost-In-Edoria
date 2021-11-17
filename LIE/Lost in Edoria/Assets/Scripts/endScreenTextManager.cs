@@ -8,7 +8,7 @@ public class endScreenTextManager : MonoBehaviour
 
     private void Awake()
     {
-        YourTime.text = Data.Instance.timeHolder + "\n seconds";
-        YourScore.text = Data.Instance.scoreholder + "\n";   
+        YourTime.text = System.Math.Round(Data.Instance.timeHolder, 2) + "\n seconds";
+        YourScore.text = System.Math.Round(Data.Instance.scoreholder, 2) + "\n";   
     }
 }

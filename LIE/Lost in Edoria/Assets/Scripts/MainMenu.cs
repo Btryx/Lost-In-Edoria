@@ -14,11 +14,27 @@ public class MainMenu : MonoBehaviour
         {
             instance = this;
         }
-
+    }
+    private void Update()
+    {
+        if (SceneManager.GetActiveScene().buildIndex != 0 && SceneManager.GetActiveScene().buildIndex != 6) {
+            if (Input.GetKeyDown(KeyCode.Escape) && !Question.Instance.gameObject.activeSelf)
+            {
+                QuestionSetActive();
+                Debug.Log("escape");
+            }
+            else if (Input.GetKeyDown(KeyCode.Escape) && Question.Instance.gameObject.activeSelf)
+            {
+                Cancel();
+                Debug.Log("cancel");
+            }
+        }
+        
     }
     public void PlayGame()
     {
         SceneManager.LoadScene(1);
+        Time.timeScale = 1;
     }
 
     public void restart()
@@ -38,11 +54,14 @@ public class MainMenu : MonoBehaviour
     public void QuestionSetActive()
     {
         Question.Instance.gameObject.SetActive(true);
+        Time.timeScale = 0;
+        Debug.Log("fuggveny");
     }
 
     public void Cancel()
     {
         Question.Instance.gameObject.SetActive(false);
+        Time.timeScale = 1;
     }
 
 }

@@ -124,3 +124,13 @@ Platformer game, where you control a little girl. Collect strawberries, avoid tr
 * Player can reset highscore if they want to
 * Modified the trampulines
 * Fixed some bugs
+  
+2021.11.11.
+----------
+* Game can be paused and unpaused with esc, and it also pauses when player presses the home button
+* Drew a gate as finishline so now it makes sense that a key is needed
+
+2021.11.17.
+----------
+* Bug fixes
+* Added some dialogue

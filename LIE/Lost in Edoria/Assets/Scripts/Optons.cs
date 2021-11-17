@@ -19,10 +19,16 @@ public class Optons : MonoBehaviour
             resArray = Screen.resolutions;
             resDropdown.ClearOptions();
             List<string> options = new List<string>();
+            int currentResolutionIndex = 0;
             for (int i = 0; i < resArray.Length; i++)
             {
                 string option = resArray[i].width + "x" + resArray[i].height;
                 options.Add(option);
+
+                if(resArray[i].width == Screen.currentResolution.width && resArray[i].height == Screen.currentResolution.height)
+                {
+                    currentResolutionIndex = i;
+                }
             }
             resDropdown.AddOptions(options);
 

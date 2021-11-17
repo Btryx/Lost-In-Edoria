@@ -14,11 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SimpleSelectedItems:
     m_Keys:
-    - Assets/Scripts/High.cs
-    - Assets/Scripts/High.cs.meta
-    - Assets/Scripts/Player.cs
+    - Assets/Prefab/Canvas.prefab
+    - Assets/Prefab/Home Variant.prefab
+    - Assets/Prefab/hanna.prefab
+    - Assets/Scenes/Level 3.unity
+    - Assets/Scenes/Level 4.unity
+    - Assets/Scripts/DontDestroy.cs
+    - Assets/Scripts/DontDestroy.cs.meta
+    - Assets/Scripts/MainMenu.cs
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Anton SDF.asset
+    - Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Electronic
+      Highway Sign SDF.asset
     - 
-    m_Values: 01010101
+    m_Values: 0000000000000000000000
   RevisionSummary: 
   ChangesSearchValue: 
   SelectedHistoryRevision: 

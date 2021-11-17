@@ -28,8 +28,5 @@ public class DialogueTrigger : MonoBehaviour
             Dialogue.instance.StartDialogue(d);
             IsFirst = false;
         }
-
-
-
     }
 }

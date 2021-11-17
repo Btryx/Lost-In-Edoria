@@ -10,7 +10,7 @@ public class textManager : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex != 6 && SceneManager.GetActiveScene().buildIndex != 0)
         {
             Time.text = "Time: " + System.Math.Round(Data.Instance.timer, 2);
-            ScoreDis.text = "Score: " + Data.Instance.scoreholder;
+            ScoreDis.text = "Score: " + System.Math.Round(Data.Instance.scoreholder, 2);
         }
     }
 }

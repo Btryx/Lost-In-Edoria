@@ -18,7 +18,7 @@ public class Door : MonoBehaviour
         doorBody = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
        OpenAndClose();
     }
@@ -28,16 +28,16 @@ public class Door : MonoBehaviour
         //opening
         if (buttoncollider.instance.DoorShouldMove)
         {
-            StartCoroutine(Move(this.gameObject, endpos, 0.008f));
+            StartCoroutine(Move(this.gameObject, endpos, 0.03f));
         }
         //closing
         if (!buttoncollider.instance.DoorShouldMove && this.gameObject.name != "door_level5")
         {
-            StartCoroutine(Move(this.gameObject, startpos, 0.005f));
+            StartCoroutine(Move(this.gameObject, startpos, 0.03f));
         }
         else if (!buttoncollider.instance.DoorShouldMove && this.gameObject.name == "door_level5")
         {
-            StartCoroutine(Move(this.gameObject, startpos, 0.001f));
+            StartCoroutine(Move(this.gameObject, startpos, 0.007f));
         }
     }
 
@@ -45,7 +45,7 @@ public class Door : MonoBehaviour
     {
         while (obj.transform.position != end)
         {
-            obj.transform.position = Vector3.MoveTowards(obj.transform.position, end, speed * Time.deltaTime);
+            obj.transform.position = Vector3.MoveTowards(obj.transform.position, end, speed * Time.fixedDeltaTime);
             yield return null;
         }
     }

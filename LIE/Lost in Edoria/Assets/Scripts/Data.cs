@@ -28,6 +28,13 @@ public class Data : MonoBehaviour
         currentLevel = TouchedFinishLine + 1;
 
         DontDestroyOnLoad(this.gameObject);
+
+        if(SceneManager.GetActiveScene().buildIndex == 0) 
+        { 
+            scoreholder = 0;
+            score = 0;
+        }
     }
+
     
 }
