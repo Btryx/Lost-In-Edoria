@@ -134,3 +134,11 @@ Platformer game, where you control a little girl. Collect strawberries, avoid tr
 ----------
 * Bug fixes
 * Added some dialogue
+
+2021.11.20.
+---------
+* Bug fixes
+  
+2021.11.22.
+---------
+* Fixed options menu
