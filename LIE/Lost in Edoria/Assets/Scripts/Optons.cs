@@ -32,9 +32,12 @@ public class Optons : MonoBehaviour
             }
             resDropdown.AddOptions(options);
 
-            resDropdown.value = Data.Instance.resolution;
+            resDropdown.value = currentResolutionIndex;
+            resDropdown.RefreshShownValue();
+
             volume.value = Data.Instance.volume;
-            fullscreen.isOn = Data.Instance.fs;
+            fullscreen.isOn = Data.Instance.isFullscreen;
+            
         }
 
     }
@@ -47,12 +50,12 @@ public class Optons : MonoBehaviour
     public void FullScreen(bool IsFull)
     {
         Screen.fullScreen = IsFull;
-        Data.Instance.fs = fullscreen.isOn;
+        Data.Instance.isFullscreen = fullscreen.isOn;
     }
     public void Resolution(int resIndex)
     {
         Resolution r = resArray[resIndex];
         Screen.SetResolution(r.width, r.height, Screen.fullScreen);
-        Data.Instance.resolution = resDropdown.value;
+
     }
 }

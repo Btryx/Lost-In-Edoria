@@ -22,11 +22,9 @@ public class DialogueTrigger : MonoBehaviour
             Dialogue.instance.StartDialogue(d);
             IsFirst = false;
         }
-        else if (this.gameObject.tag == "Gate" && collision.gameObject.tag == "ball" && !Player.Instance.haveKey && IsFirst)
+        else if (this.gameObject.tag == "Gate" && collision.gameObject.tag == "ball" && !Player.Instance.haveKey)
         {
-            IsFirst = true;
             Dialogue.instance.StartDialogue(d);
-            IsFirst = false;
         }
     }
 }

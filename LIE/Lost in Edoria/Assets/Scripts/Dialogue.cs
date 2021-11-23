@@ -28,12 +28,12 @@ public class Dialogue : MonoBehaviour
     public void StartDialogue(DiaClass d)
     {
         Toby = true;
-        diaText.text = d.DialogueText;
         dialogueIsPlaying = true;
         dialogueBox.SetActive(true);
         sentences.Clear();
         foreach (string sentence in d.sentences)
         {
+            //Enqueue adds an element to the end of the Queue
             sentences.Enqueue(sentence);
         }
 
@@ -57,7 +57,11 @@ public class Dialogue : MonoBehaviour
             return;
         }
 
-        string sentence = sentences.Dequeue();
+        //Peek returns the oldest element that is at the start of the Queue
+        string sentence = sentences.Peek();
+
+        //Dequeue removes the oldest element from the start of the Queue
+        sentences.Dequeue();
         StopAllCoroutines();
         StartCoroutine(Typing(sentence));
     }

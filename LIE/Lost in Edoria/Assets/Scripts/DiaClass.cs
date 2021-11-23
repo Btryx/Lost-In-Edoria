@@ -6,7 +6,5 @@ using TMPro;
 [System.Serializable]
 public class DiaClass
 {
-    public string DialogueText;
-    public string[] sentences;
-   
+    public string[] sentences;  
 }

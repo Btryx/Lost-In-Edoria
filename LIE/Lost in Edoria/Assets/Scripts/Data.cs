@@ -15,8 +15,7 @@ public class Data : MonoBehaviour
     public float timeHolder;
     public float timerscore;
     public float volume;
-    public bool fs;
-    public int resolution;
+    public bool isFullscreen;
 
     private void Awake()
     {
@@ -34,6 +33,7 @@ public class Data : MonoBehaviour
             scoreholder = 0;
             score = 0;
         }
+
     }
 
     
