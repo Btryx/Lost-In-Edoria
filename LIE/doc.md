@@ -9,6 +9,7 @@ Platformer game, where you control a little girl. Collect strawberries, avoid tr
 * Created Player Character in PixelStudio
 * Also an ugly test platform 
 * Made a sprite for the player character
+* Player script
 * Character moves when pressing A and D
 * Character jumps when pressing space
 * Character image flips when player turns around
@@ -18,6 +19,7 @@ Platformer game, where you control a little girl. Collect strawberries, avoid tr
 ----------
 
 * Camera follows Player at all times
+* Enemy script
 * Drew enemy1 -> very ugly
 * Enemy moves on x
 * Enemy patrols platforms
@@ -118,7 +120,7 @@ Platformer game, where you control a little girl. Collect strawberries, avoid tr
 ----------
 * Debugging
 
-2021.11.10.
+2021.11.8.
 ----------
 * Made a highscore
 * Player can reset highscore if they want to
@@ -142,3 +144,9 @@ Platformer game, where you control a little girl. Collect strawberries, avoid tr
 2021.11.22.
 ---------
 * Fixed options menu
+* Final touches
+  
+2021.11.23.
+----------
+* Finished the game
+* [Release link](https://github.com/Btryx/Lost-In-Edoria/releases/tag/LostInEdoria)
